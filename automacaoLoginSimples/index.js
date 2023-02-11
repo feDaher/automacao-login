@@ -1,5 +1,8 @@
 const pup = require('puppeteer')
+require('dotenv').config();
 
+const apiKey = process.env.API_KEY;
+const pass = process.env.SECRET_PASSWORD;
 async function automaticLogin () {
   const browser = await pup.launch({headless: false})
 
@@ -12,8 +15,8 @@ async function automaticLogin () {
     document.querySelector('.hm-MainHeaderRHSLoggedOutWide_Login').click()
   })
   await page.waitForSelector('.lms-StandardLogin_Username');
-  await page.type('.lms-StandardLogin_Username', 'fdaher09', {delay: 50})
-  await page.type('.lms-StandardLogin_Password', '33984116107', {delay: 50})
+  await page.type('.lms-StandardLogin_Username', apiKey, {delay: 50})
+  await page.type('.lms-StandardLogin_Password', pass, {delay: 50})
   await page.keyboard.press('Enter')
   
 

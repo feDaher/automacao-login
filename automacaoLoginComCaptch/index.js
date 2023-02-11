@@ -1,6 +1,10 @@
 const puppeteer = require('puppeteer');
 const request = require('request');
 const config = require ('./config.js')
+require('dotenv').config({ path: '.env2' });
+
+const login_key = process.env.API_KEY
+const pass = process.env.SECRET_PASSWORD
 
 async function sleep(seg) {
   return new Promise((resolve, reject) => {
@@ -70,8 +74,8 @@ async function run() {
     const page = await browser.newPage();
     await page.goto('https://plataforma.easyvirtualanalytics.com.br/');
     await page.waitForSelector('input[name="username"]', {delay: 100});
-    await page.type('input[name="username"]', 'felipe_daher29@hotmail.com', {delay: 100});
-    await page.type('input[name="password"]', '08739652645', {delay: 100});
+    await page.type('input[name="username"]', login_key, {delay: 100});
+    await page.type('input[name="password"]', pass, {delay: 100});
     
     let navigationPromisse = page.waitForNavigation()
     await page.evaluate((token) => {
