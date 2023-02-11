@@ -1,0 +1,15 @@
+{
+  "name": "automacao",
+  "version": "1.0.0",
+  "description": "bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^19.6.3",
+    "request": "^2.88.2"
+  }
+}
